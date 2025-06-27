@@ -1,0 +1,38 @@
+# Node dependencies
+node_modules/
+
+# Build output
+dist/
+build/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Replit-specific
+.replit
+*.replit
+*.sqlite
+*.db
+
+# TypeScript
+*.tsbuildinfo
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+logs/
+
+# Misc archives
+*.tar.gz
+
+# IDE/editor folders
+.vscode/
+.idea/
+
+# Optional: static cache or build artifacts
+.cache/
