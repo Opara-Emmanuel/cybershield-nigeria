@@ -3,7 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import SecurityStatus from "@/components/dashboard/security-status";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { AlertTriangle, Link as LinkIcon, Shield, FileText, Crown, UserCheck, TrendingUp, Mail } from "lucide-react";
+import { AlertTriangle, Link as LinkIcon, Shield, FileText, Crown, UserCheck, TrendingUp, Mail, Brain } from "lucide-react";
 import { Link } from "wouter";
 import type { ScamReport, SecurityCheck } from "@shared/schema";
 

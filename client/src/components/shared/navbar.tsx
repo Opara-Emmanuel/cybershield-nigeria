@@ -50,23 +50,17 @@ export default function Navbar() {
                     </>
                   ) : (
                     <>
-                      <Link href="/password-checker">
-                        <Button variant="ghost" className="w-full justify-start">Password Check</Button>
+                      <Link href="/security-tools">
+                        <Button variant="ghost" className="w-full justify-start">Security Tools</Button>
                       </Link>
-                      <Link href="/url-scanner">
-                        <Button variant="ghost" className="w-full justify-start">URL Scanner</Button>
+                      <Link href="/ai-threat-intel">
+                        <Button variant="ghost" className="w-full justify-start">AI & Threat Intel</Button>
                       </Link>
                       <Link href="/report-scam">
                         <Button variant="ghost" className="w-full justify-start">Report Scam</Button>
                       </Link>
-                      <Link href="/ai-advisor">
-                        <Button variant="ghost" className="w-full justify-start">AI Advisor</Button>
-                      </Link>
                       <Link href="/verification">
                         <Button variant="ghost" className="w-full justify-start">🔑 Verification</Button>
-                      </Link>
-                      <Link href="/threat-intelligence">
-                        <Button variant="ghost" className="w-full justify-start">Threat Intel</Button>
                       </Link>
                       <Link href="/email-security">
                         <Button variant="ghost" className="w-full justify-start">Email Security</Button>
@@ -106,23 +100,17 @@ export default function Navbar() {
               </>
             ) : (
               <>
-                <Link href="/password-checker">
-                  <Button variant="ghost">Password Check</Button>
+                <Link href="/security-tools">
+                  <Button variant="ghost">Security Tools</Button>
                 </Link>
-                <Link href="/url-scanner">
-                  <Button variant="ghost">URL Scanner</Button>
+                <Link href="/ai-threat-intel">
+                  <Button variant="ghost">AI & Threat Intel</Button>
                 </Link>
                 <Link href="/report-scam">
                   <Button variant="ghost">Report Scam</Button>
                 </Link>
-                <Link href="/ai-advisor">
-                  <Button variant="ghost">AI Advisor</Button>
-                </Link>
                 <Link href="/verification">
                   <Button variant="ghost">🔑 Verification</Button>
-                </Link>
-                <Link href="/threat-intelligence">
-                  <Button variant="ghost">Threat Intel</Button>
                 </Link>
                 <Link href="/email-security">
                   <Button variant="ghost">Email Security</Button>
@@ -146,3 +134,4 @@ export default function Navbar() {
     </nav>
   );
 }
+```
