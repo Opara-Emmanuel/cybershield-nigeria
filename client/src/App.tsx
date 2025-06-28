@@ -7,7 +7,7 @@ import NotFound from "@/pages/not-found";
 import AuthPage from "@/pages/auth-page";
 import HomePage from "@/pages/home-page";
 import SecurityCheck from "@/pages/security-check";
-import PasswordChecker from "@/pages/password-checker";
+import SecurityTools from "@/pages/security-tools";
 import Resources from "@/pages/resources";
 import About from "@/pages/about";
 import Pricing from "@/pages/pricing";
@@ -15,10 +15,8 @@ import Contact from "@/pages/contact";
 import ReportScam from "@/pages/report-scam";
 import { ProtectedRoute } from "./lib/protected-route";
 import Navbar from "./components/shared/navbar";
-import AIAdvisor from "@/pages/ai-advisor";
-import URLScanner from "@/pages/url-scanner";
+import AIThreatIntel from "@/pages/ai-threat-intel";
 import Verification from "@/pages/verification";
-import ThreatIntelligence from "@/pages/threat-intelligence";
 import EmailSecurity from "@/pages/email-security";
 
 function Router() {
@@ -30,13 +28,11 @@ function Router() {
       <Route path="/auth" component={AuthPage} />
       <ProtectedRoute path="/" component={HomePage} />
       <ProtectedRoute path="/security-check" component={SecurityCheck} />
-      <ProtectedRoute path="/password-checker" component={PasswordChecker} />
-      <ProtectedRoute path="/ai-advisor" component={AIAdvisor} />
+      <ProtectedRoute path="/security-tools" component={SecurityTools} />
+      <ProtectedRoute path="/ai-threat-intel" component={AIThreatIntel} />
       <ProtectedRoute path="/resources" component={Resources} />
       <ProtectedRoute path="/report-scam" component={ReportScam} />
-      <ProtectedRoute path="/url-scanner" component={URLScanner} />
       <ProtectedRoute path="/verification" component={Verification} />
-      <ProtectedRoute path="/threat-intelligence" component={ThreatIntelligence} />
       <ProtectedRoute path="/email-security" component={EmailSecurity} />
       <Route component={NotFound} />
     </Switch>
