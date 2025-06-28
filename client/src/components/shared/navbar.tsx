@@ -62,6 +62,15 @@ export default function Navbar() {
                       <Link href="/ai-advisor">
                         <Button variant="ghost" className="w-full justify-start">AI Advisor</Button>
                       </Link>
+                      <Link href="/verification">
+                        <Button variant="ghost" className="w-full justify-start">🔑 Verification</Button>
+                      </Link>
+                      <Link href="/threat-intelligence">
+                        <Button variant="ghost" className="w-full justify-start">Threat Intel</Button>
+                      </Link>
+                      <Link href="/email-security">
+                        <Button variant="ghost" className="w-full justify-start">Email Security</Button>
+                      </Link>
                       <Link href="/resources">
                         <Button variant="ghost" className="w-full justify-start">Resources</Button>
                       </Link>
@@ -108,6 +117,15 @@ export default function Navbar() {
                 </Link>
                 <Link href="/ai-advisor">
                   <Button variant="ghost">AI Advisor</Button>
+                </Link>
+                <Link href="/verification">
+                  <Button variant="ghost">🔑 Verification</Button>
+                </Link>
+                <Link href="/threat-intelligence">
+                  <Button variant="ghost">Threat Intel</Button>
+                </Link>
+                <Link href="/email-security">
+                  <Button variant="ghost">Email Security</Button>
                 </Link>
                 <Link href="/resources">
                   <Button variant="ghost">Resources</Button>

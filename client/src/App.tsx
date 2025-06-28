@@ -17,6 +17,9 @@ import { ProtectedRoute } from "./lib/protected-route";
 import Navbar from "./components/shared/navbar";
 import AIAdvisor from "@/pages/ai-advisor";
 import URLScanner from "@/pages/url-scanner";
+import Verification from "@/pages/verification";
+import ThreatIntelligence from "@/pages/threat-intelligence";
+import EmailSecurity from "@/pages/email-security";
 
 function Router() {
   return (
@@ -32,6 +35,9 @@ function Router() {
       <ProtectedRoute path="/resources" component={Resources} />
       <ProtectedRoute path="/report-scam" component={ReportScam} />
       <ProtectedRoute path="/url-scanner" component={URLScanner} />
+      <ProtectedRoute path="/verification" component={Verification} />
+      <ProtectedRoute path="/threat-intelligence" component={ThreatIntelligence} />
+      <ProtectedRoute path="/email-security" component={EmailSecurity} />
       <Route component={NotFound} />
     </Switch>
   );

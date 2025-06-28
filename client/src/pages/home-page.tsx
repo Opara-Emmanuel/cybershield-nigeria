@@ -3,7 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import SecurityStatus from "@/components/dashboard/security-status";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { AlertTriangle, Link as LinkIcon, Shield, FileText } from "lucide-react";
+import { AlertTriangle, Link as LinkIcon, Shield, FileText, Crown, UserCheck, TrendingUp, Mail } from "lucide-react";
 import { Link } from "wouter";
 import type { ScamReport, SecurityCheck } from "@shared/schema";
 
@@ -24,7 +24,7 @@ export default function HomePage() {
 
       <SecurityStatus checks={securityChecks || []} reports={scamReports || []} />
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
         <Card>
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
@@ -75,6 +75,60 @@ export default function HomePage() {
             </Link>
           </CardContent>
         </Card>
+
+        <Card className="border-yellow-200 bg-yellow-50">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <Crown className="h-5 w-5 text-yellow-600" />
+              Identity Verification
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p className="text-sm text-muted-foreground mb-4">
+              Verify individuals and businesses with KYC technology.
+            </p>
+            <Link href="/verification">
+              <Button className="w-full bg-yellow-600 hover:bg-yellow-700">Verify ID</Button>
+            </Link>
+          </CardContent>
+        </Card>
+      </div>
+
+      {/* Additional Security Tools */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+        <Card>
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <TrendingUp className="h-5 w-5 text-primary" />
+              Threat Intelligence
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p className="text-sm text-muted-foreground mb-4">
+              Stay updated on latest cybersecurity threats targeting Nigeria.
+            </p>
+            <Link href="/threat-intelligence">
+              <Button variant="outline" className="w-full">View Threats</Button>
+            </Link>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <Mail className="h-5 w-5 text-primary" />
+              Email Security
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p className="text-sm text-muted-foreground mb-4">
+              Analyze emails and domains for phishing and malware threats.
+            </p>
+            <Link href="/email-security">
+              <Button variant="outline" className="w-full">Analyze Email</Button>
+            </Link>
+          </CardContent>
+        </Card>
       </div>
 
       <Card className="mt-8">
@@ -99,6 +153,15 @@ export default function HomePage() {
               <div>
                 <h3 className="font-medium">Password Best Practices</h3>
                 <p className="text-sm text-muted-foreground">Tips for creating and managing secure passwords.</p>
+              </div>
+              <Link href="/resources">
+                <Button variant="outline">Read More</Button>
+              </Link>
+            </div>
+            <div className="flex items-center justify-between">
+              <div>
+                <h3 className="font-medium">Identity Verification Guide</h3>
+                <p className="text-sm text-muted-foreground">How to verify identities safely and securely.</p>
               </div>
               <Link href="/resources">
                 <Button variant="outline">Read More</Button>

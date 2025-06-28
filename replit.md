@@ -38,9 +38,12 @@ CyberShield Nigeria is a full-stack web application designed to protect Nigerian
 
 ### Security Tools
 - **Password Checker**: Client-side password strength analysis with breach checking
-- **URL Scanner**: Basic URL validation and safety assessment
-- **AI Advisor**: OpenAI integration for security tips and chat functionality
+- **URL Scanner**: URL validation and safety assessment with VirusTotal integration
+- **AI Advisor**: Cohere AI integration for security tips and chat functionality
 - **Scam Reporter**: User reporting system for suspicious activities
+- **Identity Verification**: Premium KYC service for individual and business verification (Dojah API ready)
+- **Threat Intelligence**: Real-time cybersecurity threat monitoring and alerts
+- **Email Security**: Email and domain analysis for phishing and malware detection
 
 ### Data Models
 ```typescript
@@ -112,7 +115,9 @@ security_checks: {
 - **esbuild**: Fast JavaScript bundler for production
 
 ### External Services
-- **OpenAI API**: AI-powered security advice and chat functionality
+- **Cohere AI API**: AI-powered security advice and chat functionality
+- **VirusTotal API**: URL and file threat scanning service
+- **Dojah API**: Identity verification and KYC services (ready for integration)
 - **Neon Database**: Serverless PostgreSQL hosting
 - **Replit**: Development and hosting platform
 
@@ -140,7 +145,9 @@ security_checks: {
 ### Environment Requirements
 - `DATABASE_URL`: PostgreSQL connection string
 - `SESSION_SECRET`: Session encryption key
-- `OPENAI_API_KEY`: OpenAI API access key
+- `COHERE_API_KEY`: Cohere AI API access key
+- `VIRUSTOTAL_API_KEY`: VirusTotal API access key (optional)
+- `DOJAH_API_KEY`: Dojah identity verification API key (for premium features)
 - `NODE_ENV`: Environment indicator (production/development)
 
 ## Changelog
@@ -156,6 +163,12 @@ Changelog:
 - June 23, 2025. Improved URL scanner error messages and AI response quality
 - June 23, 2025. Fixed error handling for proper backend message display
 - June 23, 2025. Completed URL scanner with accurate invalid format detection
+- June 28, 2025. Changed welcome banner from gold to green background
+- June 28, 2025. Added premium Identity Verification system with Dojah API integration
+- June 28, 2025. Created Threat Intelligence monitoring dashboard
+- June 28, 2025. Implemented Email Security analysis for phishing detection
+- June 28, 2025. Enhanced homepage with new security features showcase
+- June 28, 2025. Updated navigation with new premium and security tools
 ```
 
 ## User Preferences

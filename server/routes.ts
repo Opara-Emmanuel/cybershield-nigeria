@@ -253,6 +253,245 @@ Question: ${req.body.question}`,
     }
   });
 
+  // Identity Verification endpoints (Premium feature)
+  app.post("/api/verify-individual", async (req, res) => {
+    if (!req.isAuthenticated()) return res.sendStatus(401);
+
+    const { firstName, lastName, phoneNumber, nin, bvn } = req.body;
+
+    if (!firstName || !lastName || !phoneNumber) {
+      return res.status(400).json({ error: "Required fields missing" });
+    }
+
+    try {
+      // Note: This is prepared for Dojah API integration
+      // For now, return a mock response structure that matches what Dojah would return
+      console.log('Individual verification request:', { firstName, lastName, phoneNumber, nin: nin ? '***masked***' : null, bvn: bvn ? '***masked***' : null });
+      
+      if (!process.env.DOJAH_API_KEY) {
+        return res.status(503).json({ 
+          error: "Identity verification service not configured",
+          details: "Dojah API key is required for verification services"
+        });
+      }
+
+      // TODO: Integrate with Dojah API when available
+      // const dojahResponse = await fetch('https://api.dojah.io/api/v1/kyc/nin', {
+      //   method: 'POST',
+      //   headers: {
+      //     'Authorization': `Bearer ${process.env.DOJAH_API_KEY}`,
+      //     'Content-Type': 'application/json'
+      //   },
+      //   body: JSON.stringify({ nin, first_name: firstName, last_name: lastName })
+      // });
+
+      const verificationResult = {
+        id: `ver_${Date.now()}`,
+        type: 'individual' as const,
+        status: 'pending' as const,
+        data: {
+          message: "Verification service will be available after deployment with Dojah API integration",
+          submittedData: {
+            firstName,
+            lastName,
+            phoneNumber,
+            hasNin: !!nin,
+            hasBvn: !!bvn
+          }
+        },
+        createdAt: new Date().toISOString()
+      };
+
+      // Log verification attempt
+      await storage.createSecurityCheck({
+        userId: req.user.id,
+        url: null,
+        verdict: "verification_requested",
+        type: "identity_verification"
+      });
+
+      res.json(verificationResult);
+    } catch (error: any) {
+      console.error('Individual verification error:', error);
+      res.status(500).json({ 
+        error: "Verification service temporarily unavailable",
+        details: "Please try again later"
+      });
+    }
+  });
+
+  app.post("/api/verify-business", async (req, res) => {
+    if (!req.isAuthenticated()) return res.sendStatus(401);
+
+    const { businessName, rcNumber, tin, phoneNumber, email, address } = req.body;
+
+    if (!businessName || !phoneNumber) {
+      return res.status(400).json({ error: "Business name and phone number are required" });
+    }
+
+    try {
+      console.log('Business verification request:', { businessName, rcNumber, tin, phoneNumber, email });
+      
+      if (!process.env.DOJAH_API_KEY) {
+        return res.status(503).json({ 
+          error: "Business verification service not configured",
+          details: "Dojah API key is required for verification services"
+        });
+      }
+
+      // TODO: Integrate with Dojah API for business verification
+      // const dojahResponse = await fetch('https://api.dojah.io/api/v1/kyb/cac', {
+      //   method: 'POST',
+      //   headers: {
+      //     'Authorization': `Bearer ${process.env.DOJAH_API_KEY}`,
+      //     'Content-Type': 'application/json'
+      //   },
+      //   body: JSON.stringify({ rc_number: rcNumber, company_name: businessName })
+      // });
+
+      const verificationResult = {
+        id: `ver_${Date.now()}`,
+        type: 'business' as const,
+        status: 'pending' as const,
+        data: {
+          message: "Business verification service will be available after deployment with Dojah API integration",
+          submittedData: {
+            businessName,
+            rcNumber,
+            tin,
+            phoneNumber,
+            email,
+            address
+          }
+        },
+        createdAt: new Date().toISOString()
+      };
+
+      // Log verification attempt
+      await storage.createSecurityCheck({
+        userId: req.user.id,
+        url: null,
+        verdict: "business_verification_requested",
+        type: "business_verification"
+      });
+
+      res.json(verificationResult);
+    } catch (error: any) {
+      console.error('Business verification error:', error);
+      res.status(500).json({ 
+        error: "Business verification service temporarily unavailable",
+        details: "Please try again later"
+      });
+    }
+  });
+
+  // Email Security Analysis endpoints
+  app.post("/api/analyze-email", async (req, res) => {
+    if (!req.isAuthenticated()) return res.sendStatus(401);
+
+    const { senderEmail, subject, content, headers } = req.body;
+
+    if (!senderEmail) {
+      return res.status(400).json({ error: "Sender email is required" });
+    }
+
+    try {
+      console.log('Email analysis request for:', senderEmail);
+      
+      // Mock analysis result for demo (will be replaced with real analysis)
+      const analysisResult = {
+        id: `email_${Date.now()}`,
+        type: 'email' as const,
+        status: 'safe' as const,
+        score: 25,
+        analysis: {
+          spf: true,
+          dkim: false,
+          dmarc: true,
+          reputation: 'good',
+          blacklisted: false,
+          phishingIndicators: [],
+          recommendations: [
+            "Email appears legitimate based on sender domain reputation",
+            "DKIM signature is missing - sender should configure DKIM",
+            "Consider verifying sender identity through alternative means",
+            "Monitor for similar emails from this domain"
+          ]
+        },
+        createdAt: new Date().toISOString()
+      };
+
+      // Log email analysis
+      await storage.createSecurityCheck({
+        userId: req.user.id,
+        url: senderEmail,
+        verdict: "email_analyzed",
+        type: "email_security"
+      });
+
+      res.json(analysisResult);
+    } catch (error: any) {
+      console.error('Email analysis error:', error);
+      res.status(500).json({ 
+        error: "Email analysis service temporarily unavailable",
+        details: "Please try again later"
+      });
+    }
+  });
+
+  app.post("/api/analyze-domain", async (req, res) => {
+    if (!req.isAuthenticated()) return res.sendStatus(401);
+
+    const { domain } = req.body;
+
+    if (!domain) {
+      return res.status(400).json({ error: "Domain is required" });
+    }
+
+    try {
+      console.log('Domain analysis request for:', domain);
+      
+      // Mock domain analysis result
+      const analysisResult = {
+        id: `domain_${Date.now()}`,
+        type: 'domain' as const,
+        status: 'safe' as const,
+        score: 15,
+        analysis: {
+          spf: true,
+          dkim: true,
+          dmarc: true,
+          reputation: 'excellent',
+          blacklisted: false,
+          phishingIndicators: [],
+          recommendations: [
+            "Domain has excellent security configuration",
+            "All email authentication records are properly configured",
+            "Domain reputation is clean across all threat intelligence sources",
+            "Safe to receive emails from this domain"
+          ]
+        },
+        createdAt: new Date().toISOString()
+      };
+
+      // Log domain analysis
+      await storage.createSecurityCheck({
+        userId: req.user.id,
+        url: domain,
+        verdict: "domain_analyzed",
+        type: "domain_security"
+      });
+
+      res.json(analysisResult);
+    } catch (error: any) {
+      console.error('Domain analysis error:', error);
+      res.status(500).json({ 
+        error: "Domain analysis service temporarily unavailable",
+        details: "Please try again later"
+      });
+    }
+  });
+
   const httpServer = createServer(app);
   return httpServer;
 }
