@@ -37,18 +37,18 @@ export default function Footer() {
           {/* Quick Links */}
           <div>
             <h3 className="font-semibold text-green-800 mb-3">Quick Links</h3>
-            <div className="space-y-2">
+            <div className="flex flex-col space-y-2">
               <Link href="/about">
-                <Button variant="link" className="p-0 h-auto text-sm">About Us</Button>
+                <Button variant="link" className="p-0 h-auto text-sm justify-start">About Us</Button>
               </Link>
               <Link href="/resources">
-                <Button variant="link" className="p-0 h-auto text-sm">Resources</Button>
+                <Button variant="link" className="p-0 h-auto text-sm justify-start">Resources</Button>
               </Link>
               <Link href="/contact">
-                <Button variant="link" className="p-0 h-auto text-sm">Contact</Button>
+                <Button variant="link" className="p-0 h-auto text-sm justify-start">Contact</Button>
               </Link>
               <Link href="/pricing">
-                <Button variant="link" className="p-0 h-auto text-sm">Pricing</Button>
+                <Button variant="link" className="p-0 h-auto text-sm justify-start">Pricing</Button>
               </Link>
             </div>
           </div>
@@ -56,22 +56,19 @@ export default function Footer() {
           {/* Legal */}
           <div>
             <h3 className="font-semibold text-green-800 mb-3">Legal</h3>
-            <div className="space-y-2">
-              <Button variant="link" className="p-0 h-auto text-sm">Privacy Policy</Button>
-              <Button variant="link" className="p-0 h-auto text-sm">Terms of Service</Button>
-              <Button variant="link" className="p-0 h-auto text-sm">Cookie Policy</Button>
-              <Button variant="link" className="p-0 h-auto text-sm">Data Protection</Button>
+            <div className="flex flex-col space-y-2">
+              <Button variant="link" className="p-0 h-auto text-sm justify-start">Privacy Policy</Button>
+              <Button variant="link" className="p-0 h-auto text-sm justify-start">Terms of Service</Button>
+              <Button variant="link" className="p-0 h-auto text-sm justify-start">Cookie Policy</Button>
+              <Button variant="link" className="p-0 h-auto text-sm justify-start">Data Protection</Button>
             </div>
           </div>
         </div>
 
         <div className="border-t pt-6 mt-6">
-          <div className="flex flex-col md:flex-row justify-between items-center">
+          <div className="flex flex-col md:flex-row justify-center items-center">
             <p className="text-sm text-muted-foreground">
               © {new Date().getFullYear()} CyberShield Nigeria. All rights reserved.
-            </p>
-            <p className="text-sm text-muted-foreground mt-2 md:mt-0">
-              Made with ❤️ for Nigeria's digital safety
             </p>
           </div>
         </div>

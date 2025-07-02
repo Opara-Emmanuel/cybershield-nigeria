@@ -99,10 +99,13 @@ export default function Navbar() {
                         <Button variant="ghost" className="w-full justify-start">AI & Threat Intel</Button>
                       </Link>
                       <Link href="/verification">
-                        <Button variant="ghost" className="w-full justify-start">🔑 Verification</Button>
+                        <Button variant="ghost" className="w-full justify-start">Verification</Button>
                       </Link>
                       <Link href="/email-security">
                         <Button variant="ghost" className="w-full justify-start">Email Security</Button>
+                      </Link>
+                      <Link href="/report-scam">
+                        <Button variant="ghost" className="w-full justify-start">Report Scam</Button>
                       </Link>
                       <Link href="/resources">
                         <Button variant="ghost" className="w-full justify-start">Resources</Button>
@@ -146,13 +149,16 @@ export default function Navbar() {
                   <Button variant="ghost">AI & Threat Intel</Button>
                 </Link>
                 <Link href="/verification">
-                  <Button variant="ghost">🔑 Verification</Button>
+                  <Button variant="ghost">Verification</Button>
                 </Link>
                 <Link href="/email-security">
                   <Button variant="ghost">Email Security</Button>
                 </Link>
                 <Link href="/resources">
                   <Button variant="ghost">Resources</Button>
+                </Link>
+                <Link href="/report-scam">
+                  <Button variant="ghost">Report Scam</Button>
                 </Link>
                 <SettingsModal
                   darkMode={darkMode}
