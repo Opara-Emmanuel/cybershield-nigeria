@@ -15,6 +15,7 @@ import Contact from "@/pages/contact";
 import ReportScam from "@/pages/report-scam";
 import { ProtectedRoute } from "./lib/protected-route";
 import Navbar from "./components/shared/navbar";
+import Footer from "./components/shared/footer";
 import AIThreatIntel from "@/pages/ai-threat-intel";
 import Verification from "@/pages/verification";
 import EmailSecurity from "@/pages/email-security";
@@ -43,9 +44,12 @@ export default function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <AuthProvider>
-        <div className="min-h-screen bg-background">
+        <div className="min-h-screen bg-background flex flex-col">
           <Navbar />
-          <Router />
+          <main className="flex-1">
+            <Router />
+          </main>
+          <Footer />
         </div>
         <Toaster />
       </AuthProvider>

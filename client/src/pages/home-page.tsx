@@ -3,7 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import SecurityStatus from "@/components/dashboard/security-status";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { AlertTriangle, Link as LinkIcon, Shield, FileText, Crown, UserCheck, TrendingUp, Mail, Brain } from "lucide-react";
+import { AlertTriangle, Link as LinkIcon, Shield, FileText, Crown, UserCheck, TrendingUp, Mail, Brain, MessageCircle } from "lucide-react";
 import { Link } from "wouter";
 import type { ScamReport, SecurityCheck } from "@shared/schema";
 
@@ -130,6 +130,30 @@ export default function HomePage() {
           </CardContent>
         </Card>
       </div>
+
+      {/* Community Section */}
+      <Card className="mt-8 border-green-100 bg-green-50">
+        <CardHeader>
+          <CardTitle className="flex items-center gap-2 text-green-800">
+            <MessageCircle className="h-5 w-5" />
+            Join Our Community
+          </CardTitle>
+        </CardHeader>
+        <CardContent>
+          <div className="flex items-center justify-between">
+            <div>
+              <h3 className="font-medium text-green-800">WhatsApp Security Community</h3>
+              <p className="text-sm text-muted-foreground">Connect with fellow Nigerians, get real-time security alerts, and stay informed.</p>
+            </div>
+            <Button asChild className="bg-green-700 hover:bg-green-800">
+              <a href="https://chat.whatsapp.com/LrCTljj3otP7B2pR0PAZp2" target="_blank" rel="noopener noreferrer">
+                <MessageCircle className="h-4 w-4 mr-2" />
+                Join Now
+              </a>
+            </Button>
+          </div>
+        </CardContent>
+      </Card>
 
       <Card className="mt-8">
         <CardHeader>

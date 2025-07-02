@@ -1,4 +1,4 @@
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail, Phone, MapPin, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -78,6 +78,19 @@ export default function Contact() {
                   <p className="text-muted-foreground">
                     Abuja, Nigeria
                   </p>
+                </div>
+              </CardContent>
+            </Card>
+            <Card>
+              <CardContent className="flex items-center gap-4 p-6">
+                <MessageCircle className="h-6 w-6 text-primary" />
+                <div>
+                  <h3 className="font-medium">WhatsApp Community</h3>
+                  <Button asChild variant="link" className="p-0 h-auto text-sm text-muted-foreground">
+                    <a href="https://chat.whatsapp.com/LrCTljj3otP7B2pR0PAZp2" target="_blank" rel="noopener noreferrer">
+                      Join our community
+                    </a>
+                  </Button>
                 </div>
               </CardContent>
             </Card>

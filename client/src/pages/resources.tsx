@@ -1,5 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { FileText, Shield, AlertTriangle, Link as LinkIcon } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { FileText, Shield, AlertTriangle, Link as LinkIcon, ExternalLink, MessageCircle, BookOpen } from "lucide-react";
 
 export default function Resources() {
   return (
@@ -117,6 +118,61 @@ export default function Resources() {
                 to report suspicious activities.
               </p>
             </div>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <BookOpen className="h-5 w-5 text-primary" />
+              Educational Resources
+            </CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            <div>
+              <h3 className="font-medium mb-2">Online Cybersecurity Courses</h3>
+              <div className="space-y-3">
+                <Button asChild variant="outline" className="w-full justify-start">
+                  <a href="https://www.open.edu/openlearn/digital-computing/introduction-cyber-security-stay-safe-online/content-section-overview" target="_blank" rel="noopener noreferrer">
+                    <ExternalLink className="h-4 w-4 mr-2" />
+                    Introduction to Cyber Security - OpenLearn
+                  </a>
+                </Button>
+                <Button asChild variant="outline" className="w-full justify-start">
+                  <a href="https://www.netacad.com/courses/introduction-to-cybersecurity" target="_blank" rel="noopener noreferrer">
+                    <ExternalLink className="h-4 w-4 mr-2" />
+                    Introduction to Cybersecurity - Cisco
+                  </a>
+                </Button>
+                <Button asChild variant="outline" className="w-full justify-start">
+                  <a href="https://www.efcc.gov.ng/efcc/" target="_blank" rel="noopener noreferrer">
+                    <ExternalLink className="h-4 w-4 mr-2" />
+                    EFCC - Financial Crime Prevention
+                  </a>
+                </Button>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        <Card className="border-green-100 bg-green-50">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2 text-green-800">
+              <MessageCircle className="h-5 w-5" />
+              Join Our Community
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p className="text-sm text-muted-foreground mb-4">
+              Connect with fellow Nigerians in our cybersecurity community. Get real-time alerts, 
+              ask questions, and share experiences.
+            </p>
+            <Button asChild className="w-full bg-green-700 hover:bg-green-800">
+              <a href="https://chat.whatsapp.com/LrCTljj3otP7B2pR0PAZp2" target="_blank" rel="noopener noreferrer">
+                <MessageCircle className="h-4 w-4 mr-2" />
+                Join WhatsApp Community
+              </a>
+            </Button>
           </CardContent>
         </Card>
       </div>

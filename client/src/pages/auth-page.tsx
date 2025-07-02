@@ -28,9 +28,18 @@ export default function AuthPage() {
   }
 
   return (
-    <div className="min-h-screen flex">
-      <div className="flex-1 p-8 flex items-center justify-center">
-        <Card className="w-full max-w-md">
+    <div 
+      className="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 relative"
+      style={{
+        backgroundImage: 'url(/cybershield-bg.jpg)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
+      }}
+    >
+      <div className="absolute inset-0 bg-black/20"></div>
+      <div className="max-w-md w-full space-y-8 relative z-10">
+        <Card className="backdrop-blur-sm bg-white/95 border-green-200">
           <CardHeader>
             <div className="flex items-center gap-2 mb-2">
               <img 

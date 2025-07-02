@@ -56,7 +56,12 @@ export default function About() {
           <li>Real-time scam detection and reporting</li>
           <li>Password strength verification</li>
           <li>Suspicious URL scanning</li>
+          <li>Identity verification for individuals and businesses</li>
+          <li>Business cybersecurity consulting</li>
+          <li>IT security consulting and implementation</li>
           <li>Cybersecurity education and resources</li>
+          <li>AI-powered threat intelligence</li>
+          <li>Email security analysis</li>
         </ul>
 
         <h2>Our Team</h2>
