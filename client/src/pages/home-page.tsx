@@ -86,15 +86,7 @@ export default function HomePage() {
       >
         <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/40 to-green-900/70 dark:from-black/80 dark:via-black/60 dark:to-green-900/80 transition-colors duration-300"></div>
         
-        {/* Dark Mode Toggle */}
-        <Button
-          variant="outline"
-          size="icon"
-          onClick={toggleDarkMode}
-          className="fixed top-4 right-4 z-50 bg-white/10 backdrop-blur-md border-white/20 hover:bg-white/20 text-white"
-        >
-          {darkMode ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
-        </Button>
+        
 
         <div className="relative z-10 max-w-6xl mx-auto text-center">
           <div className="flex flex-col sm:flex-row items-center justify-center mb-6 gap-4">
@@ -119,16 +111,17 @@ export default function HomePage() {
             Safeguard your passwords, detect malicious links, and get AI-powered security guidance.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12 px-4">
-            {user ? (
-              <Link href="/security-tools">
-                <Button size="lg" className="bg-green-600 hover:bg-green-700 text-white px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg w-full sm:w-auto">
-                  <Shield className="mr-2 h-4 sm:h-5 w-4 sm:w-5" />
-                  Go to Dashboard
-                  <ArrowRight className="ml-2 h-4 sm:h-5 w-4 sm:w-5" />
-                </Button>
-              </Link>
-            ) : (
+          {user ? (
+            <div className="text-center mb-12">
+              <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">
+                Welcome back, {user.username}!
+              </h2>
+              <p className="text-lg text-gray-200 mb-6">
+                Your security dashboard is ready. Monitor your digital safety below.
+              </p>
+            </div>
+          ) : (
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12 px-4">
               <Link href="/auth">
                 <Button size="lg" className="bg-green-600 hover:bg-green-700 text-white px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg w-full sm:w-auto">
                   <Shield className="mr-2 h-4 sm:h-5 w-4 sm:w-5" />
@@ -136,26 +129,28 @@ export default function HomePage() {
                   <ArrowRight className="ml-2 h-4 sm:h-5 w-4 sm:w-5" />
                 </Button>
               </Link>
-            )}
-            <Link href="/resources">
-              <Button size="lg" variant="outline" className="border-white/30 text-white hover:bg-white/10 px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg backdrop-blur-sm w-full sm:w-auto">
-                Learn More
-              </Button>
-            </Link>
-          </div>
+              <Link href="/resources">
+                <Button size="lg" variant="outline" className="border-white/30 text-white hover:bg-white/10 px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg backdrop-blur-sm w-full sm:w-auto">
+                  Learn More
+                </Button>
+              </Link>
+            </div>
+          )}
 
-          {/* Stats */}
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 px-4">
-            {stats.map((stat, index) => (
-              <div key={index} className="text-center">
-                <div className="flex flex-col sm:flex-row items-center justify-center mb-2 gap-1 sm:gap-2">
-                  <stat.icon className="h-5 w-5 sm:h-6 sm:w-6 text-yellow-400 mb-1 sm:mb-0" />
-                  <div className="text-xl sm:text-2xl md:text-3xl font-bold text-white">{stat.number}</div>
+          {/* Stats - only show for non-authenticated users */}
+          {!user && (
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 px-4">
+              {stats.map((stat, index) => (
+                <div key={index} className="text-center">
+                  <div className="flex flex-col sm:flex-row items-center justify-center mb-2 gap-1 sm:gap-2">
+                    <stat.icon className="h-5 w-5 sm:h-6 sm:w-6 text-yellow-400 mb-1 sm:mb-0" />
+                    <div className="text-xl sm:text-2xl md:text-3xl font-bold text-white">{stat.number}</div>
+                  </div>
+                  <div className="text-xs sm:text-sm text-gray-300">{stat.label}</div>
                 </div>
-                <div className="text-xs sm:text-sm text-gray-300">{stat.label}</div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          )}
         </div>
       </div>
 
@@ -164,7 +159,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 sm:mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-              Complete Cybersecurity Suite
+              Dashboard Features
             </h2>
             <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
               Everything you need to stay secure online, built specifically for the Nigerian digital landscape.
@@ -172,21 +167,37 @@ export default function HomePage() {
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {features.map((feature, index) => (
-              <Card key={index} className="group hover:shadow-2xl transition-all duration-300 border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 hover:scale-105">
-                <CardHeader>
-                  <div className="flex items-center mb-4">
-                    <div className={`p-3 rounded-lg bg-green-50 dark:bg-green-900/20 group-hover:scale-110 transition-transform duration-300`}>
-                      <feature.icon className={`h-6 w-6 ${feature.color}`} />
-                    </div>
-                  </div>
-                  <CardTitle className="text-gray-900 dark:text-white text-lg sm:text-xl">{feature.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-600 dark:text-gray-300 text-sm sm:text-base">{feature.description}</p>
-                </CardContent>
-              </Card>
-            ))}
+            {features.map((feature, index) => {
+              const getFeatureLink = (title: string) => {
+                switch (title) {
+                  case "Password Security": return "/password-checker";
+                  case "URL Scanner": return "/url-scanner";
+                  case "AI Security Advisor": return "/ai-advisor";
+                  case "Identity Verification": return "/verification";
+                  case "Scam Reporting": return "/report-scam";
+                  case "Nigeria-Focused": return "/about";
+                  default: return "/security-tools";
+                }
+              };
+              
+              return (
+                <Card key={index} className="group hover:shadow-2xl transition-all duration-300 border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 hover:scale-105 cursor-pointer">
+                  <Link href={getFeatureLink(feature.title)}>
+                    <CardHeader>
+                      <div className="flex items-center mb-4">
+                        <div className={`p-3 rounded-lg bg-green-50 dark:bg-green-900/20 group-hover:scale-110 transition-transform duration-300`}>
+                          <feature.icon className={`h-6 w-6 ${feature.color}`} />
+                        </div>
+                      </div>
+                      <CardTitle className="text-gray-900 dark:text-white text-lg sm:text-xl">{feature.title}</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-gray-600 dark:text-gray-300 text-sm sm:text-base">{feature.description}</p>
+                    </CardContent>
+                  </Link>
+                </Card>
+              );
+            })}
           </div>
         </div>
       </div>

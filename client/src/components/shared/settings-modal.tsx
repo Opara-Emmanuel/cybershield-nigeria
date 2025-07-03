@@ -94,7 +94,15 @@ export default function SettingsModal({ darkMode, setDarkMode, language, setLang
                 <span className="text-sm">Dark Mode</span>
                 <Switch
                   checked={darkMode}
-                  onCheckedChange={setDarkMode}
+                  onCheckedChange={(checked) => {
+                    setDarkMode(checked);
+                    if (checked) {
+                      document.documentElement.classList.add('dark');
+                    } else {
+                      document.documentElement.classList.remove('dark');
+                    }
+                    localStorage.setItem('darkMode', checked.toString());
+                  }}
                 />
               </div>
             </CardContent>

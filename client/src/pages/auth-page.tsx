@@ -58,13 +58,13 @@ export default function AuthPage() {
               <img 
                 src="/CyberShield_logo_1744892924930.png" 
                 alt="CyberShield Nigeria Logo" 
-                className="h-16 w-auto" 
+                className="h-24 w-auto" 
               />
               <div>
-                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-2">
+                <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-2">
                   CyberShield
                 </h1>
-                <p className="text-lg sm:text-xl text-yellow-400 font-semibold">
+                <p className="text-base sm:text-lg text-yellow-400 font-semibold">
                   Nigeria
                 </p>
               </div>
@@ -108,6 +108,16 @@ export default function AuthPage() {
               <div className="text-left">
                 <h3 className="font-semibold text-white">Trusted Community</h3>
                 <p className="text-gray-300 text-sm">Join thousands of protected Nigerians</p>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-4 bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
+              <div className="w-12 h-12 bg-green-800 rounded-lg flex items-center justify-center">
+                <Globe className="h-6 w-6 text-white" />
+              </div>
+              <div className="text-left">
+                <h3 className="font-semibold text-white">Nigeria-Focused</h3>
+                <p className="text-gray-300 text-sm">Tailored solutions for Nigerian cybersecurity challenges</p>
               </div>
             </div>
           </div>

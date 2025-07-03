@@ -5,13 +5,14 @@ import { Link } from "wouter";
 
 export default function Pricing() {
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <div className="text-center mb-12">
-        <h1 className="text-4xl font-bold mb-4">Simple, Transparent Pricing</h1>
-        <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-          Choose the plan that best fits your security needs
-        </p>
-      </div>
+    <div className="min-h-screen bg-gradient-to-br from-green-50 via-yellow-50/30 to-white dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="text-center mb-12">
+          <h1 className="text-4xl font-bold mb-4 text-green-800 dark:text-green-300">Simple, Transparent Pricing</h1>
+          <p className="text-xl text-gray-700 dark:text-gray-300 max-w-2xl mx-auto">
+            Choose the plan that's right for your cybersecurity needs
+          </p>
+        </div>
 
       <div className="grid md:grid-cols-3 gap-8">
         <Card>
@@ -104,6 +105,7 @@ export default function Pricing() {
           </CardContent>
         </Card>
       </div>
+    </div>
     </div>
   );
 }

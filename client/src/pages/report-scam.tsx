@@ -67,15 +67,15 @@ export default function ReportScam() {
         </Card>
       </div>
 
-      <Card className="border-yellow-200 bg-yellow-50">
+      <Card className="border-yellow-200 bg-yellow-50 dark:bg-yellow-900/20 dark:border-yellow-700">
         <CardHeader>
-          <CardTitle className="text-yellow-800">Important Information</CardTitle>
+          <CardTitle className="text-yellow-800 dark:text-yellow-200">Important Information</CardTitle>
         </CardHeader>
         <CardContent className="space-y-3">
-          <p className="text-sm">• Report scams immediately to prevent others from being victimized</p>
-          <p className="text-sm">• Provide as much detail as possible in your report</p>
-          <p className="text-sm">• Keep evidence such as screenshots, emails, or messages</p>
-          <p className="text-sm">• Never engage with suspected scammers</p>
+          <p className="text-sm text-yellow-900 dark:text-yellow-100">• Report scams immediately to prevent others from being victimized</p>
+          <p className="text-sm text-yellow-900 dark:text-yellow-100">• Provide as much detail as possible in your report</p>
+          <p className="text-sm text-yellow-900 dark:text-yellow-100">• Keep evidence such as screenshots, emails, or messages</p>
+          <p className="text-sm text-yellow-900 dark:text-yellow-100">• Never engage with suspected scammers</p>
         </CardContent>
       </Card>
     </div>
