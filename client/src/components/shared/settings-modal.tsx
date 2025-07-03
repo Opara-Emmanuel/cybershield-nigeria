@@ -7,6 +7,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
+  DialogDescription,
 } from "@/components/ui/dialog";
 import {
   Select,
@@ -75,9 +76,12 @@ export default function SettingsModal({ darkMode, setDarkMode, language, setLang
           <Settings className="h-5 w-5" />
         </Button>
       </DialogTrigger>
-      <DialogContent className="max-w-md max-h-[80vh] overflow-y-auto">
+      <DialogContent className="max-w-md max-h-[80vh] overflow-y-auto" aria-describedby="settings-description">
         <DialogHeader>
           <DialogTitle>Settings</DialogTitle>
+          <p id="settings-description" className="sr-only">
+            Configure your application preferences and account settings
+          </p>
         </DialogHeader>
         <div className="space-y-6">
           {/* Theme Toggle */}
