@@ -1,4 +1,3 @@
-
 import { useAuth } from "@/hooks/use-auth";
 import { useToast } from "@/hooks/use-toast";
 import { Button } from "@/components/ui/button";
@@ -40,7 +39,7 @@ export default function AuthPage() {
     >
       {/* Background overlay */}
       <div className="absolute inset-0 bg-gradient-to-br from-green-900/90 via-black/60 to-green-800/80"></div>
-      
+
       {/* Animated particles overlay */}
       <div className="absolute inset-0 opacity-20">
         <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-yellow-400 rounded-full animate-pulse"></div>
@@ -50,7 +49,7 @@ export default function AuthPage() {
 
       {/* Main content */}
       <div className="max-w-6xl w-full flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-16 relative z-10">
-        
+
         {/* Left side - Welcome content */}
         <div className="flex-1 max-w-xl text-center lg:text-left">
           <div className="mb-8">
@@ -69,7 +68,7 @@ export default function AuthPage() {
                 </p>
               </div>
             </div>
-            
+
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4">
               Protect Your Digital Life
             </h2>
@@ -90,7 +89,7 @@ export default function AuthPage() {
                 <p className="text-gray-300 text-sm">Password strength checking and URL scanning</p>
               </div>
             </div>
-            
+
             <div className="flex items-center gap-4 bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
               <div className="w-12 h-12 bg-yellow-500 rounded-lg flex items-center justify-center">
                 <Eye className="h-6 w-6 text-white" />
@@ -100,7 +99,7 @@ export default function AuthPage() {
                 <p className="text-gray-300 text-sm">Real-time monitoring and scam detection</p>
               </div>
             </div>
-            
+
             <div className="flex items-center gap-4 bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
               <div className="w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center">
                 <Users className="h-6 w-6 text-white" />

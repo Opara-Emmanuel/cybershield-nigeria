@@ -119,6 +119,15 @@ export default function HomePage() {
               <p className="text-lg text-gray-200 mb-6">
                 Your security dashboard is ready. Monitor your digital safety below.
               </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Link href="/security-tools">
+                  <Button size="lg" className="bg-green-600 hover:bg-green-700 text-white px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg w-full sm:w-auto">
+                    <Shield className="mr-2 h-4 sm:h-5 w-4 sm:w-5" />
+                    Access Security Tools
+                    <ArrowRight className="ml-2 h-4 sm:h-5 w-4 sm:w-5" />
+                  </Button>
+                </Link>
+              </div>
             </div>
           ) : (
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12 px-4">
@@ -154,7 +163,8 @@ export default function HomePage() {
         </div>
       </div>
 
-      {/* Features Section */}
+      {/* Features Section - only show for non-authenticated users */}
+      {!user && (
       <div className="py-16 sm:py-20 bg-white dark:bg-gray-900 transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 sm:mb-16">
@@ -201,8 +211,10 @@ export default function HomePage() {
           </div>
         </div>
       </div>
+      )}
 
-      {/* Why Choose CyberShield Section */}
+      {/* Why Choose CyberShield Section - only show for non-authenticated users */}
+      {!user && (
       <div className="py-16 sm:py-20 bg-gradient-to-br from-green-50 via-yellow-50/30 to-green-50 dark:from-gray-800 dark:to-gray-900 transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="lg:grid lg:grid-cols-2 lg:gap-16 items-center">
@@ -284,8 +296,10 @@ export default function HomePage() {
           </div>
         </div>
       </div>
+      )}
 
-      {/* Call to Action */}
+      {/* Call to Action - only show for non-authenticated users */}
+      {!user && (
       <div className="py-16 sm:py-20 bg-gray-900 dark:bg-black transition-colors duration-300">
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6">
@@ -305,6 +319,7 @@ export default function HomePage() {
           )}
         </div>
       </div>
+      )}
     </div>
   );
 }
