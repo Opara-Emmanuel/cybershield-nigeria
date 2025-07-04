@@ -123,7 +123,7 @@ export default function Verification() {
           <div className="flex items-center gap-2">
             <Crown className="h-8 w-8 text-yellow-500" />
             <Badge variant="secondary" className="bg-yellow-100 text-yellow-800">
-              PREMIUM FEATURE
+              COMING SOON
             </Badge>
           </div>
         </div>

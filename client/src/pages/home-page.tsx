@@ -89,34 +89,34 @@ export default function HomePage() {
         
 
         <div className="relative z-10 max-w-6xl mx-auto text-center">
-          <div className="flex flex-col sm:flex-row items-center justify-center mb-6 gap-4">
+          <div className="flex flex-col sm:flex-row items-center justify-center mb-8 lg:mb-12 gap-4 lg:gap-6">
             <img 
               src="/CyberShield_logo_1744892924930.png" 
               alt="CyberShield Nigeria Logo" 
-              className="h-16 sm:h-20 w-auto" 
+              className="h-16 sm:h-20 lg:h-24 w-auto" 
             />
-            <Badge variant="secondary" className="bg-yellow-500/20 text-yellow-200 border-yellow-400/30 text-sm">
-              <Zap className="h-3 w-3 mr-1" />
+            <Badge variant="secondary" className="bg-yellow-500/20 text-yellow-200 border-yellow-400/30 text-sm lg:text-base">
+              <Zap className="h-3 w-3 lg:h-4 lg:w-4 mr-1" />
               Nigeria's #1 Cybersecurity Platform
             </Badge>
           </div>
           
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-8 lg:mb-12 leading-tight">
             Protect Your
             <span className="bg-gradient-to-r from-green-400 via-yellow-400 to-green-500 bg-clip-text text-transparent block sm:inline"> Digital Life</span>
           </h1>
           
-          <p className="text-lg sm:text-xl md:text-2xl text-gray-200 mb-8 max-w-4xl mx-auto leading-relaxed px-4">
+          <p className="text-lg sm:text-xl md:text-2xl text-gray-200 mb-12 lg:mb-16 max-w-4xl mx-auto leading-relaxed px-4">
             CyberShield Nigeria is your comprehensive cybersecurity companion, designed specifically for Nigerian users. 
             Safeguard your passwords, detect malicious links, and get AI-powered security guidance.
           </p>
 
           {user ? (
-            <div className="text-center mb-12">
-              <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">
+            <div className="text-center mb-16 lg:mb-20">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-6 lg:mb-8">
                 Welcome back, {user.username}!
               </h2>
-              <p className="text-lg text-gray-200 mb-6">
+              <p className="text-lg lg:text-xl text-gray-200 mb-8 lg:mb-12 max-w-2xl mx-auto">
                 Your security dashboard is ready. Monitor your digital safety below.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -130,7 +130,7 @@ export default function HomePage() {
               </div>
             </div>
           ) : (
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12 px-4">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16 lg:mb-20 px-4">
               <Link href="/auth">
                 <Button size="lg" className="bg-green-600 hover:bg-green-700 text-white px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg w-full sm:w-auto">
                   <Shield className="mr-2 h-4 sm:h-5 w-4 sm:w-5" />

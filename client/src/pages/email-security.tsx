@@ -17,7 +17,8 @@ import {
   Search,
   FileText,
   Link as LinkIcon,
-  Clock
+  Clock,
+  Crown
 } from "lucide-react";
 import { apiRequest, queryClient } from "@/lib/queryClient";
 
@@ -119,6 +120,14 @@ export default function EmailSecurity() {
     <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       {/* Header */}
       <div className="mb-8">
+        <div className="flex items-center gap-3 mb-4">
+          <div className="flex items-center gap-2">
+            <Crown className="h-8 w-8 text-yellow-500" />
+            <Badge variant="secondary" className="bg-yellow-100 text-yellow-800">
+              PREMIUM FEATURE
+            </Badge>
+          </div>
+        </div>
         <h1 className="text-4xl font-bold text-green-800 mb-2">Email Security Analysis</h1>
         <p className="text-lg text-muted-foreground">
           Analyze emails and domains for phishing, spam, and malicious content

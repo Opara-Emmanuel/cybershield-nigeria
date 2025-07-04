@@ -11,6 +11,7 @@ export default function Navbar() {
   const { user, logoutMutation } = useAuth();
   const [darkMode, setDarkMode] = useState(false);
   const [language, setLanguage] = useState("en");
+  const [isSheetOpen, setIsSheetOpen] = useState(false);
 
   useEffect(() => {
     // Load theme preference from localStorage
@@ -41,6 +42,10 @@ export default function Navbar() {
     localStorage.setItem("language", language);
   }, [language]);
 
+  const handleLinkClick = () => {
+    setIsSheetOpen(false);
+  };
+
   return (
     <nav className="border-b bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -53,7 +58,7 @@ export default function Navbar() {
                   alt="CyberShield Nigeria Logo" 
                   className="h-16 w-auto object-contain" 
                 />
-                <span className="font-bold text-lg text-green-700">CyberShield Nigeria</span>
+                <span className="font-bold text-lg text-green-700 ml-2">CyberShield Nigeria</span>
               </Button>
             </Link>
           </div>
@@ -67,7 +72,7 @@ export default function Navbar() {
                 setLanguage={setLanguage}
               />
             )}
-            <Sheet>
+            <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
               <SheetTrigger asChild>
                 <Button variant="ghost" size="icon">
                   <Menu className="h-6 w-6" />
@@ -78,41 +83,44 @@ export default function Navbar() {
                   {!user ? (
                     <>
                       <Link href="/about">
-                        <Button variant="ghost" className="w-full justify-start">About</Button>
+                        <Button variant="ghost" className="w-full justify-start" onClick={handleLinkClick}>About</Button>
                       </Link>
                       <Link href="/pricing">
-                        <Button variant="ghost" className="w-full justify-start">Pricing</Button>
+                        <Button variant="ghost" className="w-full justify-start" onClick={handleLinkClick}>Pricing</Button>
                       </Link>
                       <Link href="/contact">
-                        <Button variant="ghost" className="w-full justify-start">Contact</Button>
+                        <Button variant="ghost" className="w-full justify-start" onClick={handleLinkClick}>Contact</Button>
                       </Link>
                       <Link href="/auth">
-                        <Button className="w-full justify-start">Get Started</Button>
+                        <Button className="w-full justify-start bg-green-600 hover:bg-green-700 text-white" onClick={handleLinkClick}>Get Started</Button>
                       </Link>
                     </>
                   ) : (
                     <>
                       <Link href="/security-tools">
-                        <Button variant="ghost" className="w-full justify-start">Security Tools</Button>
+                        <Button variant="ghost" className="w-full justify-start" onClick={handleLinkClick}>Security Tools</Button>
                       </Link>
                       <Link href="/ai-threat-intel">
-                        <Button variant="ghost" className="w-full justify-start">AI & Threat Intel</Button>
+                        <Button variant="ghost" className="w-full justify-start" onClick={handleLinkClick}>AI & Threat Intel</Button>
                       </Link>
                       <Link href="/verification">
-                        <Button variant="ghost" className="w-full justify-start">Verification</Button>
+                        <Button variant="ghost" className="w-full justify-start" onClick={handleLinkClick}>Verification</Button>
                       </Link>
                       <Link href="/email-security">
-                        <Button variant="ghost" className="w-full justify-start">Email Security</Button>
+                        <Button variant="ghost" className="w-full justify-start" onClick={handleLinkClick}>Email Security</Button>
                       </Link>
                       <Link href="/report-scam">
-                        <Button variant="ghost" className="w-full justify-start">Report Scam</Button>
+                        <Button variant="ghost" className="w-full justify-start" onClick={handleLinkClick}>Report Scam</Button>
                       </Link>
                       <Link href="/resources">
-                        <Button variant="ghost" className="w-full justify-start">Resources</Button>
+                        <Button variant="ghost" className="w-full justify-start" onClick={handleLinkClick}>Resources</Button>
                       </Link>
                       <Button
                         variant="outline"
-                        onClick={() => logoutMutation.mutate()}
+                        onClick={() => {
+                          logoutMutation.mutate();
+                          handleLinkClick();
+                        }}
                         disabled={logoutMutation.isPending}
                         className="w-full justify-start border-yellow-300 hover:bg-yellow-50"
                       >
@@ -137,7 +145,7 @@ export default function Navbar() {
                   <Button variant="ghost">Contact</Button>
                 </Link>
                 <Link href="/auth">
-                  <Button>Get Started</Button>
+                  <Button className="bg-green-600 hover:bg-green-700 text-white">Get Started</Button>
                 </Link>
               </>
             ) : (
